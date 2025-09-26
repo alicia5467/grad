@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Congratulations My Sourpatch</title>
+  <style>
+    :root{
+      --bg1:#0f0f0f; --bg2:#1a1a1a; --accent:#00ffb3; --accent2:#33ffcc; --glass:#ffffff; --rim:#d9d9d9; --wine1:#8b0000; --wine2:#b22222;
+    }
+    *{box-sizing:border-box}
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(1200px 800px at 70% 30%, #202020 0%, var(--bg2) 45%, var(--bg1) 100%);
+      overflow: hidden;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      color: #fff;
+    }
+
+    body::after{
+      content:""; position:fixed; inset:0; pointer-events:none;
+      background: radial-gradient(60% 60% at 50% 50%, transparent 40%, rgba(0,0,0,.55));
+    }
+
+    
+    .car { position: absolute; bottom: 44px; width: 180px; filter: drop-shadow(0 8px 20px rgba(0,255,179,.35));
+      animation: drive 6.5s linear infinite; }
+    @keyframes drive { 0%{ left:-220px; } 100%{ left:110%; } }
+
+    /* Wine glasses */
+    .wine-svg{ position:absolute; bottom:64px; width:140px; height:auto; filter: drop-shadow(0 10px 24px rgba(255,255,255,.08)); }
+    .wine-left { left:40px; }
+    .wine-right { right:40px; }
+
+    .wine-fill{ transform-origin: center bottom; animation: pour 5.5s ease-in-out infinite alternate; }
+    @keyframes pour{ from{ transform: scaleY(0.05);} to{ transform: scaleY(0.72);} }
+
+    /* Sparkles */
+    .sparkle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: sparkleAnim 4s linear infinite;
+    }
+    @keyframes sparkleAnim {
+      0% { transform: translateY(0) scale(0.5); opacity:0; }
+      25% { opacity:1; }
+      100% { transform: translateY(-200px) scale(1.2); opacity:0; }
+    }
+
+    /* Card */
+    .card {
+      position: relative; z-index: 10;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(10px);
+      padding: 44px 64px;
+      border-radius: 22px;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.55);
+    }
+    .card h1 { font-size: 2.25rem; letter-spacing:.4px; margin:0 0 8px; background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .card p { font-size: 1.15rem; color: #cfcfcf; margin-top: 10px; }
+    .scan{ position:absolute; inset:0; background:linear-gradient(to bottom, transparent, rgba(255,255,255,.05), transparent); animation:scan 6s linear infinite; mask:linear-gradient(#0000,#000,#0000);} 
+    @keyframes scan{ 0%{ transform: translateY(-100%);} 100%{ transform: translateY(100%);} }
+  </style>
+</head>
+<body>
+
+  
+  <svg class="car" viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" aria-label="F1 car">
+    <path d="M40 190h130l35-30h90l45 22h180l40 18H40z" fill="var(--accent)"/>
+    <path d="M270 150h70v28h-70z" fill="#2b2b2b"/>
+    <rect x="300" y="138" width="14" height="12" rx="2" fill="#999"/>
+    <path d="M30 210h150l-10 16H20z" fill="var(--accent2)"/>
+    <path d="M545 168h60v20h-60z" fill="var(--accent)"/>
+    <g fill="#1b1b1b" stroke="#8a8a8a" stroke-width="8">
+      <circle cx="170" cy="220" r="36"/>
+      <circle cx="500" cy="220" r="40"/>
+    </g>
+  </svg>
+  <svg class="car" viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" aria-label="F1 car">
+    <path d="M40 190h130l35-30h90l45 22h180l40 18H40z" fill="var(--accent)"/>
+    <path d="M270 150h70v28h-70z" fill="#2b2b2b"/>
+    <rect x="300" y="138" width="14" height="12" rx="2" fill="#999"/>
+    <path d="M30 210h150l-10 16H20z" fill="var(--accent2)"/>
+    <path d="M545 168h60v20h-60z" fill="var(--accent)"/>
+    <g fill="#1b1b1b" stroke="#8a8a8a" stroke-width="8">
+      <circle cx="170" cy="220" r="36"/>
+      <circle cx="500" cy="220" r="40"/>
+    </g>
+  </svg>
+
+  
+  <svg class="wine-svg wine-left" viewBox="0 0 200 360" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="wineGrad1" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="var(--wine2)"/>
+        <stop offset="100%" stop-color="var(--wine1)"/>
+      </linearGradient>
+      <clipPath id="bowlClip1">
+        <path d="M50 40 C50 18, 150 18, 150 40 C150 120, 130 170, 100 190 C70 170, 50 120, 50 40 Z"/>
+      </clipPath>
+    </defs>
+    <ellipse cx="100" cy="336" rx="56" ry="10" fill="rgba(0,0,0,.35)"/>
+    <path d="M50 40 C50 18, 150 18, 150 40 C150 120, 130 170, 100 190 C70 170, 50 120, 50 40 Z" fill="rgba(255,255,255,.03)" stroke="var(--rim)" stroke-width="3.5"/>
+    <path d="M96 190 L104 190 L108 300 L92 300 Z" fill="rgba(255,255,255,.2)"/>
+    <rect x="64" y="300" width="72" height="10" rx="5" fill="rgba(255,255,255,.25)"/>
+    <rect x="50" y="310" width="100" height="10" rx="6" fill="rgba(255,255,255,.18)"/>
+    <g clip-path="url(#bowlClip1)">
+      <rect class="wine-fill" x="48" y="40" width="104" height="150" fill="url(#wineGrad1)"/>
+      <rect class="wine-fill" x="48" y="40" width="104" height="4" fill="rgba(255,255,255,.25)"/>
+    </g>
+    <path d="M55 38 C55 26, 145 26, 145 38" fill="none" stroke="white" stroke-opacity=".35" stroke-width="2"/>
+  </svg>
+
+  <svg class="wine-svg wine-right" viewBox="0 0 200 360" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="wineGrad2" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="var(--wine2)"/>
+        <stop offset="100%" stop-color="var(--wine1)"/>
+      </linearGradient>
+      <clipPath id="bowlClip2">
+        <path d="M50 40 C50 18, 150 18, 150 40 C150 120, 130 170, 100 190 C70 170, 50 120, 50 40 Z"/>
+      </clipPath>
+    </defs>
+    <ellipse cx="100" cy="336" rx="56" ry="10" fill="rgba(0,0,0,.35)"/>
+    <path d="M50 40 C50 18, 150 18, 150 40 C150 120, 130 170, 100 190 C70 170, 50 120, 50 40 Z" fill="rgba(255,255,255,.03)" stroke="var(--rim)" stroke-width="3.5"/>
+    <path d="M96 190 L104 190 L108 300 L92 300 Z" fill="rgba(255,255,255,.2)"/>
+    <rect x="64" y="300" width="72" height="10" rx="5" fill="rgba(255,255,255,.25)"/>
+    <rect x="50" y="310" width="100" height="10" rx="6" fill="rgba(255,255,255,.18)"/>
+    <g clip-path="url(#bowlClip2)">
+      <rect class="wine-fill" x="48" y="40" width="104" height="150" fill="url(#wineGrad2)"/>
+      <rect class="wine-fill" x="48" y="40" width="104" height="4" fill="rgba(255,255,255,.25)"/>
+    </g>
+    <path d="M55 38 C55 26, 145 26, 145 38" fill="none" stroke="white" stroke-opacity=".35" stroke-width="2"/>
+  </svg>
+
+  
+  <div class="card">
+    <div class="scan"></div>
+    <h1>Congratulations My Sourpatch 🎓</h1>
+    <p>You did it smartie! i am proud of you <3</p>
+    <p>Just got extra cool now ...damnnnnn</p>
+<video controls width="320" style="margin-top:15px; border-radius:12px; box-shadow:0 6px 16px rgba(0,0,0,0.5)">
+    <source src="ezra.mp4" type="video/mp4">
+<video autoplay muted loop width="320">
+    Your browser does not support the video tag.
+  </video>
+
+  </div>
+   <audio id="bg-music" loop>
+
+  <source src="hey daddy.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<button id="play-btn">▶ press play </button>
+
+<script>
+  const music = document.getElementById('bg-music');
+  const btn = document.getElementById('play-btn');
+
+  btn.addEventListener('click', () => {
+    music.play();
+    btn.style.display = "none"; // hide button after playing
+  });
+</script>
+
+  
+  <script>
+    const sparkleCount = 40;
+    for(let i=0;i<sparkleCount;i++){
+      const s=document.createElement('div');
+      s.className='sparkle';
+      s.style.left=Math.random()*window.innerWidth+'px';
+      s.style.top=(Math.random()*window.innerHeight+100)+'px';
+      s.style.animationDelay=(Math.random()*5)+'s';
+      document.body.appendChild(s);
+    }
+  </script>
+
+</body>
+</html>
